@@ -1,18 +1,18 @@
-import Character from "../src/js/character";
-import Bowman from "../src/js/bowman";
-import Swordsman from "../src/js/swordsman";
-import Magician from "../src/js/magician";
-import Daemon from "../src/js/daemon";
-import Undead from "../src/js/undead";
-import Zombie from "../src/js/zombie";
+import Character from '../src/js/character';
+import Bowman from '../src/js/bowman';
+import Swordsman from '../src/js/swordsman';
+import Magician from '../src/js/magician';
+import Daemon from '../src/js/daemon';
+import Undead from '../src/js/undead';
+import Zombie from '../src/js/zombie';
 
 const playersList = [
   [
     Bowman,
-    "Ivan",
+    'Ivan',
     {
-      name: "Ivan",
-      type: "Bowman",
+      name: 'Ivan',
+      type: 'Bowman',
       health: 100,
       level: 1,
       attack: 25,
@@ -21,10 +21,10 @@ const playersList = [
   ],
   [
     Swordsman,
-    "Yana",
+    'Yana',
     {
-      name: "Yana",
-      type: "Swordsman",
+      name: 'Yana',
+      type: 'Swordsman',
       health: 100,
       level: 1,
       attack: 40,
@@ -33,10 +33,10 @@ const playersList = [
   ],
   [
     Magician,
-    "Alexander",
+    'Alexander',
     {
-      name: "Alexander",
-      type: "Magician",
+      name: 'Alexander',
+      type: 'Magician',
       health: 100,
       level: 1,
       attack: 10,
@@ -45,10 +45,10 @@ const playersList = [
   ],
   [
     Daemon,
-    "Tanya",
+    'Tanya',
     {
-      name: "Tanya",
-      type: "Daemon",
+      name: 'Tanya',
+      type: 'Daemon',
       health: 100,
       level: 1,
       attack: 10,
@@ -57,10 +57,10 @@ const playersList = [
   ],
   [
     Undead,
-    "Valya",
+    'Valya',
     {
-      name: "Valya",
-      type: "Undead",
+      name: 'Valya',
+      type: 'Undead',
       health: 100,
       level: 1,
       attack: 25,
@@ -69,10 +69,10 @@ const playersList = [
   ],
   [
     Zombie,
-    "Oleg",
+    'Oleg',
     {
-      name: "Oleg",
-      type: "Zombie",
+      name: 'Oleg',
+      type: 'Zombie',
       health: 100,
       level: 1,
       attack: 40,
@@ -84,18 +84,18 @@ const playersList = [
 const testHandler = test.each(playersList);
 
 testHandler(
-  "testing player %q created by %w",
+  'testing player %q created by %w',
   (Type, createdObject, expectedObject) => {
     const result = new Type(createdObject);
     expect(result).toEqual(expectedObject);
-  }
+  },
 );
 
-test("test for class Character", () => {
-  const result = new Character("Matvey", "Daemon");
+test('test for class Character', () => {
+  const result = new Character('Matvey', 'Daemon');
   expect(result).toEqual({
-    name: "Matvey",
-    type: "Daemon",
+    name: 'Matvey',
+    type: 'Daemon',
     health: 100,
     level: 1,
     attack: 10,
@@ -104,29 +104,30 @@ test("test for class Character", () => {
 });
 
 const characterErrorList = [
-  ["Error - name isn't string", 1, "Daemon", "Ошибка в параметре name"],
-  ["Error - name is too short", "a", "Daemon", "Ошибка в параметре name"],
+  ["Error - name isn't string", 1, 'Daemon', 'Ошибка в параметре name'],
+  ['Error - name is too short', 'a', 'Daemon', 'Ошибка в параметре name'],
   [
-    "Error - name is too long",
-    "AAAAAAAAAbbbbbddddduuuuullllaaaaeeevvvvv",
-    "Daemon",
-    "Ошибка в параметре name",
+    'Error - name is too long',
+    'AAAAAAAAAbbbbbddddduuuuullllaaaaeeevvvvv',
+    'Daemon',
+    'Ошибка в параметре name',
   ],
   [
-    "Error - incorrect type of player",
-    "Matvey",
-    "Demon",
-    "Ошибка в типе игрока",
+    'Error - incorrect type of player',
+    'Matvey',
+    'Demon',
+    'Ошибка в типе игрока',
   ],
 ];
 
 const testCharacterErrors = test.each(characterErrorList);
 
-/*testCharacterErrors(
+testCharacterErrors(
   'test Errors of class Character by name is %q type is %w',
   (error, name, type, expected) => {
     expect(() => {
-      new Character(name, type);
+      const result = new Character(name, type);
+      console.log(result);
     }).toThrowError(expected);
   },
-);*/
+);

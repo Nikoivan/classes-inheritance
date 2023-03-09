@@ -1,3 +1,3 @@
-# Task Mocking
+# Task Classes Extends
 
-[![Build status](https://ci.appveyor.com/api/projects/status/3e7vodnu5k0xufuc?svg=true)](https://ci.appveyor.com/project/Nikoivan/mocking)
+[![Build status](https://ci.appveyor.com/api/projects/status/aog5d2rqqltu52rx?svg=true)](https://ci.appveyor.com/project/Nikoivan/classes-inheritance-80r35)
