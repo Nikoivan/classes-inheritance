@@ -1,7 +1,9 @@
-import Character from "./character";
+import Character from './character';
 
 class Undead extends Character {
-  constructor() {
+  constructor(name) {
+    super(name, 'Undead');
+
     this.attack = 25;
     this.defence = 25;
   }

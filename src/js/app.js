@@ -1,7 +1,13 @@
-import Character from "./character";
-import Bowman from "./bowman";
-import Swordsman from "./swordsman";
-import Magician from "./magician";
-import Daemon from "./daemon";
-import Undead from "./undead";
-import Zombie from "./zombie";
+import Bowman from './bowman';
+import Swordsman from './swordsman';
+import Magician from './magician';
+import Daemon from './daemon';
+import Undead from './undead';
+import Zombie from './zombie';
+/*
+const bowman = new Bowman('Ivan');
+const swordsman = new Swordsman('Yana');
+const magician = new Magician('Alexander');
+const daemon = new Daemon('Tanya');
+const undead = new Undead('Valya');
+const zombie = new Zombie('Oleg'); */
