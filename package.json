@@ -37,6 +37,8 @@
     "html": "^1.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.5.0",
+    "jest-babel": "^1.0.1",
     "live-server": "^1.2.2",
     "loader": "^2.1.1",
     "mini-css-extract-plugin": "^2.7.3",
