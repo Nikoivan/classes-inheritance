@@ -6,28 +6,7 @@ import Daemon from "../src/js/daemon";
 import Undead from "../src/js/undead";
 import Zombie from "../src/js/zombie";
 
-const character = new Character("Matvey", "Daemon");
-const bowman = new Bowman("Ivan");
-const swordsman = new Swordsman("Yana");
-const magician = new Magician("Alexander");
-const daemon = new Daemon("Tanya");
-const undead = new Undead("Valya");
-const zombie = new Zombie("Oleg");
-
-const testList = [
-  [
-    Character,
-    "Matvey",
-    "Daemon",
-    {
-      name: "Matvey",
-      type: "Daemon",
-      health: 100,
-      level: 1,
-      attack: 10,
-      defence: 10,
-    },
-  ],
+const playersList = [
   [
     Bowman,
     "Ivan",
@@ -102,9 +81,51 @@ const testList = [
   ],
 ];
 
-const testHandler = test.each(testList);
+const testHandler = test.each(playersList);
 
-test("testing player %q created by %w", (type, createdObject, expectedObject) => {
-  const result = new type(createdObject);
-  expect(result).toBe(expectedObject);
+testHandler(
+  "testing player %q created by %w",
+  (type, createdObject, expectedObject) => {
+    const result = new type(createdObject);
+    expect(result).toEqual(expectedObject);
+  }
+);
+
+test("test for class Character", () => {
+  const result = new Character("Matvey", "Daemon");
+  expect(result).toEqual({
+    name: "Matvey",
+    type: "Daemon",
+    health: 100,
+    level: 1,
+    attack: 10,
+    defence: 10,
+  });
 });
+
+const characterErrorList = [
+  ["Error - name isn't string", 1, "Daemon", "Ошибка в параметре name"],
+  ["Error - name is too short", "a", "Daemon", "Ошибка в параметре name"],
+  [
+    "Error - name is too long",
+    "AAAAAAAAAbbbbbddddduuuuullllaaaaeeevvvvv",
+    "Daemon",
+    "Ошибка в параметре name",
+  ],
+  [
+    "Error - incorrect type of player",
+    "Matvey",
+    "Demon",
+    "Ошибка в типе игрока",
+  ],
+];
+
+const testCharacterErrors = test.each(characterErrorList);
+
+testCharacterErrors(
+  "test Errors of class Character by name is %q type is %w",
+  (error, name, type, expected) => {
+    const result = new Character(name, type);
+    expect(result).toThrow();
+  }
+);
