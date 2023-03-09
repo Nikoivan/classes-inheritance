@@ -1,7 +1,9 @@
 import Character from "./character";
 
 class Bowman extends Character {
-  constructor() {
+  constructor(name) {
+    super(name, "Bowman");
+
     this.attack = 25;
     this.defence = 25;
   }
